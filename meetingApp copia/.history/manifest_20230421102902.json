@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Meeting App",
+    "version": "1.0",
+    "description": "An app to calculate meeting costs based on hourly rates of attendees.",
+    "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "permissions": ["activeTab"],
+    "browser_action": {
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      },
+      "default_title": "Meeting App",
+      "default_popup": "popup.html"
+    }
+  }
+  

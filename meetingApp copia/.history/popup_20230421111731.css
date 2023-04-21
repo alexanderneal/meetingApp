@@ -1,0 +1,73 @@
+.popup-container {
+    width: 250px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  body {
+    background: linear-gradient(45deg, #f0f0f0 25%, #e6e6e6 25%, #e6e6e6 50%, #f0f0f0 50%, #f0f0f0 75%, #e6e6e6 75%);
+    background-size: 20px 20px;
+  }
+  
+  #add-member-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #title {
+    font-family: 'SF Pro', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  #members-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .member {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #c0c0c0;
+  }
+  
+  .member-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #007acc;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .member-name {
+    flex: 1;
+    font-family: 'SF Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .member-cost {
+    font-family: 'SF Pro', sans-serif;
+    font-size: 14px;
+    color: #555;
+  }
+  
