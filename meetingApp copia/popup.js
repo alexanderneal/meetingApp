@@ -34,7 +34,15 @@ function renderMembersList() {
     `;
     membersList.appendChild(memberEl);
   });
+
+  if (members.length === 0) {
+    const emptyMessageEl = document.createElement("li");
+    emptyMessageEl.classList.add("member-empty");
+    emptyMessageEl.textContent = "No members added yet";
+    membersList.appendChild(emptyMessageEl);
+  }
 }
+
 
 // Load and parse CSV file
 const csvFilePath = 'team_salaries.csv';
