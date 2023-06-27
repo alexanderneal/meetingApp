@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Member Popup</title>
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body style="background: linear-gradient(to bottom right, white, #c5e1a5, #f9a825, #e53935);">
-    <div class="popup-container">
-      <button id="add-member-btn">Add Member</button>
-      <h1 id="title">Team Members</h1>
-      <ul id="members-list">
-        <li class="member">
-          <div class="member-icon"></div>
-          <div class="member-name">John Doe</div>
-          <div class="member-cost">$100</div>
-        </li>
-        <li class="member">
-          <div class="member-icon"></div>
-          <div class="member-name">Jane Smith</div>
-          <div class="member-cost">$150</div>
-        </li>
-        <li class="member">
-          <div class="member-icon"></div>
-          <div class="member-name">Bob Johnson</div>
-          <div class="member-cost">$80</div>
-        </li>
-        <li class="member">
-          <div class="member-icon"></div>
-          <div class="member-name">Alice Williams</div>
-          <div class="member-cost">$120</div>
-        </li>
-        <li class="member-empty">No members added yet</li>
-      </ul>
-      <div id="total-cost">Total cost: $0.00</div>
-    </div>
-    <script src="popup.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Member Popup</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="popup-container">
+  <div id="total-cost">Total Cost: $0.00</div>
+  <h1 id="title">Team Members</h1>
+  <ul id="members-list">
+    <li class="member">
+      <div class="member-icon"></div>
+      <div class="member-name">John Doe</div>
+      <div class="member-cost">$100</div>
+    </li>
+    <li class="member">
+      <div class="member-icon"></div>
+      <div class="member-name">Jane Smith</div>
+      <div class="member-cost">$150</div>
+    </li>
+    <li class="member">
+      <div class="member-icon"></div>
+      <div class="member-name">Bob Johnson</div>
+      <div class="member-cost">$80</div>
+    </li>
+    <li class="member">
+      <div class="member-icon"></div>
+      <div class="member-name">Alice Williams</div>
+      <div class="member-cost">$120</div>
+    </li>
+    <li class="member-empty">No members added yet</li>
+  </ul>
+</div>
+<script src="popup.js"></script>
+</body>
 </html>
-

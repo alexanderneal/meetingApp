@@ -36,3 +36,29 @@ function renderMembersList() {
   });
 }
 
+// Load and parse CSV file
+const csvFilePath = 'team_salaries.csv';
+
+fetch(csvFilePath)
+  .then((response) => response.text())
+  .then((data) => {
+    const parsedData = Papa.parse(data, { header: true }).data;
+    parsedData.forEach((row) => {
+      const name = row.Name;
+      const salary = parseInt(row.Salary);
+      const costPerHour = salary / 52 / 40;
+
+      const member = {
+        name: name,
+        salary: salary,
+        costPerHour: costPerHour,
+      };
+
+      members.push(member);
+    });
+
+    renderMembersList();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
