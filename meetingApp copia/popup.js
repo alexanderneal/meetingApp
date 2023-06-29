@@ -1,25 +1,7 @@
-// Code for the popup window
-// In popup.js
-
 const membersList = document.getElementById("members-list");
-const addMemberBtn = document.getElementById("add-member-btn");
+const totalCostEl = document.getElementById("total-cost");
 
 let members = [];
-
-addMemberBtn.addEventListener("click", () => {
-  const name = prompt("Enter member name:");
-  const salary = parseInt(prompt("Enter member salary:"));
-  const costPerHour = salary / 52 / 40;
-
-  const member = {
-    name: name,
-    salary: salary,
-    costPerHour: costPerHour,
-  };
-
-  members.push(member);
-  renderMembersList();
-});
 
 function renderMembersList() {
   membersList.innerHTML = "";
@@ -43,30 +25,41 @@ function renderMembersList() {
   }
 }
 
+function calculateTotalCost() {
+  const totalCost = members.reduce((sum, member) => {
+    return sum + member.salary;
+  }, 0);
 
-// Load and parse CSV file
-const csvFilePath = 'team_salaries.csv';
+  totalCostEl.textContent = `Total Cost: $${totalCost.toFixed(2)}`;
+}
 
-fetch(csvFilePath)
-  .then((response) => response.text())
-  .then((data) => {
-    const parsedData = Papa.parse(data, { header: true }).data;
-    parsedData.forEach((row) => {
-      const name = row.Name;
-      const salary = parseInt(row.Salary);
-      const costPerHour = salary / 52 / 40;
+function loadDataFromCSV() {
+  Papa.parse("team_salaries.csv", {
+    download: true,
+    header: true,
+    complete: function (results) {
+      members = results.data.map((row) => {
+        const name = row.Name;
+        const salary = parseInt(row.Salary);
+        const costPerHour = salary / 52 / 40;
 
-      const member = {
-        name: name,
-        salary: salary,
-        costPerHour: costPerHour,
-      };
+        return {
+          name: name,
+          salary: salary,
+          costPerHour: costPerHour,
+        };
+      });
 
-      members.push(member);
-    });
-
-    renderMembersList();
-  })
-  .catch((error) => {
-    console.error('Error:', error);
+      renderMembersList();
+      calculateTotalCost();
+    },
+    error: function (error) {
+      console.error("Error:", error);
+      members = [];
+      renderMembersList();
+      calculateTotalCost();
+    },
   });
+}
+
+loadDataFromCSV();
