@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Meeting App",
     "version": "1.0",
     "description": "An app to calculate meeting costs based on hourly rates of attendees.",
