@@ -17,15 +17,11 @@ Add Member Popup is a simple web application that allows you to add and display 
 1. Clone the repository.
 2. Open `popup.html` in a web browser.
 
-3. Google Chrome Extensions darg and drop.
+3. Google Chrome Extensions drag and drop.
 
 ## Usage
 
-1. Click the "Add Member" button to add a new team member.
-2. Enter the member's name and salary in the prompt window.
-3. The member will be added to the list with the calculated cost per hour.
-4. Scroll through the list to view all the members.
-5. The total cost will be displayed at the bottom.
+Add members in the excel spreedsheet.
 
 ## Technologies Used
 
