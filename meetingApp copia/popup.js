@@ -11,26 +11,32 @@ const csvFilePath = 'team_salaries.csv';
 fetch(csvFilePath)
   .then((response) => response.text())
   .then((data) => {
-    const parsedData = Papa.parse(data, { header: true }).data;
-    parsedData.forEach((row) => {
-      const name = row.Name;
-      const salary = parseFloat(row.Salary);
-      const costPerHour = (salary / 52 / 40).toFixed(2);
+    try {
+      const parsedData = Papa.parse(data, { header: true }).data;
+      console.log('Parsed CSV data:', parsedData);
 
-      const member = {
-        name: name,
-        salary: salary,
-        costPerHour: costPerHour,
-      };
+      parsedData.forEach((row) => {
+        const name = row.Name;
+        const salary = parseFloat(row.Salary);
+        const costPerHour = (salary / 52 / 40).toFixed(2);
 
-      members.push(member);
-    });
+        const member = {
+          name: name,
+          salary: salary,
+          costPerHour: costPerHour,
+        };
 
-    renderMembersList();
-    calculateTotalCost();
+        members.push(member);
+      });
+
+      renderMembersList();
+      calculateTotalCost();
+    } catch (error) {
+      console.error('Error parsing CSV data:', error);
+    }
   })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error('Error loading CSV file:', error);
   });
 
 function renderMembersList() {
