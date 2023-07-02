@@ -1,7 +1,8 @@
 # Project Title
 
 Meetign Cost calculator
-![meetingApp Sketches](meetingApp/meetingApp sketches.png)
+
+![meetingApp Sketches](meetingApp/meetingAppsketches.png)
 
 
 
