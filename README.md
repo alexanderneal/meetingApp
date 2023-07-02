@@ -2,7 +2,7 @@
 
 Meetign Cost calculator
 
-![meetingApp Sketches](meetingApp/meetingAppsketches.png)
+![meetingApp Sketches](/meetingAppsketches.png)
 
 
 
