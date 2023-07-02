@@ -1,6 +1,15 @@
 # Project Title
 
 Meetign Cost calculator
+![meetingApp Sketches](meetingApp/meetingApp sketches.png)
+
+
+
+
+
+
+
+
 ## Description
 
 Add Member Popup is a simple web application that allows you to add and display team members in a popup window. You can input their names and salaries, and the application will calculate and display the cost per hour for each member. It provides a convenient way to keep track of team members and their costs.
