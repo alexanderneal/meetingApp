@@ -73,5 +73,8 @@ function calculateTotalCost() {
     total += parseFloat(member.costPerHour);
   });
 
-  totalCost.textContent = `Total Cost: ${total.toFixed(2)} €`;
+  totalCost.innerHTML = `
+    <div style="color: green; text-align: center; font-weight: bold;">${total.toFixed(2)} €</div>
+    <div style="color: black; text-align: center;">Total Cost:</div>
+  `;
 }
