@@ -12,22 +12,27 @@ fetch(csvFilePath)
   .then((response) => response.text())
   .then((data) => {
     try {
-      const parsedData = Papa.parse(data, { header: true }).data;
-      console.log('Parsed CSV data:', parsedData);
+      const rows = data.split('\n');
+      const headers = rows[0].split(';');
 
-      parsedData.forEach((row) => {
-        const name = row.Name;
-        const salary = parseFloat(row.Salary);
-        const costPerHour = (salary / 52 / 40).toFixed(2);
+      for (let i = 1; i < rows.length; i++) {
+        const values = rows[i].split(';');
 
-        const member = {
-          name: name,
-          salary: salary,
-          costPerHour: costPerHour,
-        };
+        if (values.length === headers.length) {
+          const member = {};
 
-        members.push(member);
-      });
+          for (let j = 0; j < headers.length; j++) {
+            const header = headers[j].trim();
+            const value = values[j].trim();
+            member[header] = value;
+          }
+
+          // Calculate hourly cost based on salary
+          member.costPerHour = (parseFloat(member.Salary) / 52 / 40).toFixed(2);
+
+          members.push(member);
+        }
+      }
 
       renderMembersList();
       calculateTotalCost();
@@ -47,14 +52,14 @@ function renderMembersList() {
     memberEl.classList.add("member");
     memberEl.innerHTML = `
       <div class="member-icon"></div>
-      <div class="member-name">${member.name}</div>
+      <div class="member-name">${member.Name}</div>
       <div class="member-cost">${member.costPerHour} €/hr</div>
     `;
     membersList.appendChild(memberEl);
   });
 
   if (members.length === 0) {
-    const emptyMessageEl = document.createElement("li");
+    const emptyMessageEl = document.createElement("div");
     emptyMessageEl.classList.add("member-empty");
     emptyMessageEl.textContent = "No members added yet";
     membersList.appendChild(emptyMessageEl);
@@ -65,7 +70,7 @@ function calculateTotalCost() {
   let total = 0;
 
   members.forEach((member) => {
-    total += parseFloat(member.costPerHour) * 2; // Assuming meeting duration of 2 hours
+    total += parseFloat(member.costPerHour);
   });
 
   totalCost.textContent = `Total Cost: ${total.toFixed(2)} €`;
