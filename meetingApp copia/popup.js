@@ -74,7 +74,7 @@ function calculateTotalCost() {
   });
 
   totalCost.innerHTML = `
-    <div style="color: green; text-align: center; font-weight: bold;">${total.toFixed(2)} €</div>
+    <div style="color: #6bbf6b; text-align: center; font-weight: bold; font-family: 'Source Sans Pro', sans-serif;">${total.toFixed(2)} €</div>
     <div style="color: black; text-align: center;">Total Cost:</div>
   `;
 }
