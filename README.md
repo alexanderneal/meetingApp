@@ -1,8 +1,8 @@
 # Project Title
 
-Meetign Cost calculator
+Meeting Cost calculator
 
-![meetingApp Sketches](./meetingAppsketches.png/)
+![My image](meetingApp%20sketches.png)
 
 
 
@@ -31,7 +31,7 @@ Add Member Popup is a simple web application that allows you to add and display 
 
 ## Usage
 
-Add members in the excel spreedsheet.
+Add members in the Excel spreadsheet.
 
 ## Technologies Used
 
