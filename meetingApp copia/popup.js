@@ -2,6 +2,7 @@
 
 const membersList = document.getElementById("members-list");
 const totalCost = document.getElementById("total-cost");
+const printButton = document.getElementById("print-button");
 
 let members = [];
 
@@ -9,40 +10,40 @@ let members = [];
 const csvFilePath = 'team_salaries.csv';
 
 fetch(csvFilePath)
-  .then((response) => response.text())
-  .then((data) => {
-    try {
-      const rows = data.split('\n');
-      const headers = rows[0].split(';');
+    .then((response) => response.text())
+    .then((data) => {
+      try {
+        const rows = data.split('\n');
+        const headers = rows[0].split(';');
 
-      for (let i = 1; i < rows.length; i++) {
-        const values = rows[i].split(';');
+        for (let i = 1; i < rows.length; i++) {
+          const values = rows[i].split(';');
 
-        if (values.length === headers.length) {
-          const member = {};
+          if (values.length === headers.length) {
+            const member = {};
 
-          for (let j = 0; j < headers.length; j++) {
-            const header = headers[j].trim();
-            const value = values[j].trim();
-            member[header] = value;
+            for (let j = 0; j < headers.length; j++) {
+              const header = headers[j].trim();
+              const value = values[j].trim();
+              member[header] = value;
+            }
+
+            // Calculate hourly cost based on salary
+            member.costPerHour = (parseFloat(member.Salary) / 52 / 40).toFixed(2);
+
+            members.push(member);
           }
-
-          // Calculate hourly cost based on salary
-          member.costPerHour = (parseFloat(member.Salary) / 52 / 40).toFixed(2);
-
-          members.push(member);
         }
-      }
 
-      renderMembersList();
-      calculateTotalCost();
-    } catch (error) {
-      console.error('Error parsing CSV data:', error);
-    }
-  })
-  .catch((error) => {
-    console.error('Error loading CSV file:', error);
-  });
+        renderMembersList();
+        calculateTotalCost();
+      } catch (error) {
+        console.error('Error parsing CSV data:', error);
+      }
+    })
+    .catch((error) => {
+      console.error('Error loading CSV file:', error);
+    });
 
 function renderMembersList() {
   membersList.innerHTML = "";
@@ -74,7 +75,19 @@ function calculateTotalCost() {
   });
 
   totalCost.innerHTML = `
-    <div style="color: #6bbf6b; text-align: center; font-weight: bold; font-family: 'Source Sans Pro', sans-serif;">${total.toFixed(2)} €</div>
+    <div style="color: #6bbf6b; text-align: center; font-weight: bold;">${total.toFixed(2)} €</div>
     <div style="color: black; text-align: center;">Total Cost:</div>
   `;
 }
+
+function captureScreenshot() {
+  html2canvas(document.querySelector('.popup-container')).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+
+    // Open the image in a new tab (optional)
+    const newTab = window.open();
+    newTab.document.write('<img src="' + imgData + '" />');
+  });
+}
+
+printButton.addEventListener('click', captureScreenshot);
