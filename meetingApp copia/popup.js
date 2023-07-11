@@ -25,8 +25,7 @@ fetch(csvFilePath)
 
             for (let j = 0; j < headers.length; j++) {
               const header = headers[j].trim();
-              const value = values[j].trim();
-              member[header] = value;
+              member[header] = values[j].trim();
             }
 
             // Calculate hourly cost based on salary
