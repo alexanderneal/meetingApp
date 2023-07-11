@@ -21,7 +21,11 @@ fetch(csvFilePath)
           const values = rows[i].split(';');
 
           if (values.length === headers.length) {
-            const member = {};
+            const member = {
+              Salary() {
+
+              }
+            };
 
             for (let j = 0; j < headers.length; j++) {
               const header = headers[j].trim();
@@ -78,6 +82,10 @@ function calculateTotalCost() {
     <div style="color: #6bbf6b; text-align: center; font-weight: bold;">${total.toFixed(2)} €</div>
     <div style="color: black; text-align: center;">Total Cost:</div>
   `;
+}
+
+function html2canvas(element) {
+
 }
 
 printButton.addEventListener("click", () => {
