@@ -1,9 +1,6 @@
-// Code for the popup window
-
 const membersList = document.getElementById("members-list");
 const totalCost = document.getElementById("total-cost");
-const printButton = document.querySelector(".print-button");
-
+const printButton = document.getElementById("print-button");
 
 let members = [];
 
@@ -21,11 +18,7 @@ fetch(csvFilePath)
           const values = rows[i].split(';');
 
           if (values.length === headers.length) {
-            const member = {
-              Salary() {
-
-              }
-            };
+            const member = {};
 
             for (let j = 0; j < headers.length; j++) {
               const header = headers[j].trim();
@@ -84,15 +77,10 @@ function calculateTotalCost() {
   `;
 }
 
-function html2canvas(element) {
-
-}
-
 printButton.addEventListener("click", () => {
   html2canvas(document.querySelector(".popup-container")).then((canvas) => {
-    const image = canvas.toDataURL();
     const link = document.createElement("a");
-    link.href = image;
+    link.href = canvas.toDataURL("image/png");
     link.download = "meeting_cost.png";
     link.click();
   });

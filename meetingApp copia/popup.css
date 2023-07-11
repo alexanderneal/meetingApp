@@ -11,6 +11,7 @@
   border: 5px solid #a7c4dd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: relative;
+  overflow: hidden;
 }
 
 #total-cost {
@@ -20,7 +21,6 @@
   text-align: center;
   margin-bottom: 30px;
   margin-top: 10px;
-  color: #555;
 }
 
 #title {
@@ -70,19 +70,22 @@
   right: 10px;
 }
 
-.print-button {
+.blue-rectangle {
   width: 40px;
   height: 40px;
   background-color: #007acc;
-  border-radius: 50%;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
-.print-button img {
+#print-button {
   width: 24px;
   height: 24px;
 }
 
+#print-button img {
+  width: 100%;
+  height: 100%;
+}
