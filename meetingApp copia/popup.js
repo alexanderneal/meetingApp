@@ -2,7 +2,8 @@
 
 const membersList = document.getElementById("members-list");
 const totalCost = document.getElementById("total-cost");
-const printButton = document.getElementById("print-button");
+const printButton = document.querySelector(".print-button");
+
 
 let members = [];
 

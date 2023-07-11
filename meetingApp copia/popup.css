@@ -10,6 +10,7 @@
   border-radius: 10px;
   border: 5px solid #a7c4dd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 #total-cost {
@@ -19,7 +20,7 @@
   text-align: center;
   margin-bottom: 30px;
   margin-top: 10px;
-  color: #6bbf6b;
+  color: #555;
 }
 
 #title {
@@ -69,9 +70,9 @@
   right: 10px;
 }
 
-#print-button {
-  width: 32px;
-  height: 32px;
+.print-button {
+  width: 40px;
+  height: 40px;
   background-color: #007acc;
   border-radius: 50%;
   display: flex;
@@ -80,8 +81,8 @@
   cursor: pointer;
 }
 
-#print-button img {
-  width: 20px;
-  height: 20px;
-  fill: #ffffff;
+.print-button img {
+  width: 24px;
+  height: 24px;
 }
+
