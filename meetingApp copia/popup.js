@@ -80,14 +80,12 @@ function calculateTotalCost() {
   `;
 }
 
-function captureScreenshot() {
-  html2canvas(document.querySelector('.popup-container')).then((canvas) => {
-    const imgData = canvas.toDataURL('image/png');
-
-    // Open the image in a new tab (optional)
-    const newTab = window.open();
-    newTab.document.write('<img src="' + imgData + '" />');
+printButton.addEventListener("click", () => {
+  html2canvas(document.querySelector(".popup-container")).then((canvas) => {
+    const image = canvas.toDataURL();
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "meeting_cost.png";
+    link.click();
   });
-}
-
-printButton.addEventListener('click', captureScreenshot);
+});
