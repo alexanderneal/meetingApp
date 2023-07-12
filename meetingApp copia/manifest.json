@@ -49,7 +49,7 @@
         "icons/icon32.png",
         "icons/icon48.png",
         "icons/icon128.png",
-        "logo.png"
+        "print.png"
       ],
       "matches": ["http://*/*", "https://*/*"]
     }
