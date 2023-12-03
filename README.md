@@ -38,6 +38,7 @@ Add members in the Excel spreadsheet.
 - HTML
 - CSS
 - JavaScript
+- Excel
 
 ## License
 
@@ -52,6 +53,6 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 For any inquiries or feedback, please contact:
 
-Your Name
+Alexander Neal Yagüe
 Email: nealalexander@gmail.com
 
