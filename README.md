@@ -2,7 +2,7 @@
 
 Meeting Cost calculator
 
-![My image](meetingApp%20sketches.png)
+![My image](description.png)
 
 
 
