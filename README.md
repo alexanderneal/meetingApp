@@ -1,6 +1,6 @@
 # Project Title
 
-Meeting Cost calculator
+ # Meeting Cost calculator
 
 ![My image](description.png)
 
